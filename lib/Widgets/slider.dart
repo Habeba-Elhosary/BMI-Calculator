@@ -1,10 +1,8 @@
 import 'package:bmi_calculator/constants/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import "package:syncfusion_flutter_sliders/sliders.dart";
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
-
 import 'package:bmi_calculator/constants/colors.dart';
 
 // ignore: must_be_immutable
@@ -13,7 +11,8 @@ class SFSliderWidget extends StatefulWidget {
   final String unit;
   final int minValue;
   final int maxValue;
-  int measuredValue;
+  double measuredValue;
+  final void Function(dynamic) onChangedFunction;
   SFSliderWidget({
     super.key,
     required this.minValue,
@@ -21,6 +20,7 @@ class SFSliderWidget extends StatefulWidget {
     required this.measuredValue,
     required this.title,
     required this.unit,
+    required this.onChangedFunction,
   });
 
   @override
@@ -42,7 +42,7 @@ class _SFSliderWidgetState extends State<SFSliderWidget> {
                 style: TextStyles.bodyText,
               ),
               Text(
-                "${widget.measuredValue} ",
+                "${widget.measuredValue.toInt()} ",
                 style: TextStyles.headLine,
               ),
               Text(
@@ -66,14 +66,7 @@ class _SFSliderWidgetState extends State<SFSliderWidget> {
               min: widget.minValue,
               max: widget.maxValue,
               value: widget.measuredValue,
-              onChanged: (value) {
-                setState(() {
-                  widget.measuredValue = value.toInt();
-                });
-                if (kDebugMode) {
-                  print(widget.measuredValue);
-                }
-              },
+              onChanged: widget.onChangedFunction,
               showTicks: true,
               showLabels: true,
               interval: 10,

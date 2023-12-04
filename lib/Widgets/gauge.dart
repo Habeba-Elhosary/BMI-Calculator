@@ -10,11 +10,12 @@ class GaugeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfRadialGauge(
-      // enableLoadingAnimation: true,
+      enableLoadingAnimation: true,
       axes: <RadialAxis>[
         RadialAxis(minimum: 0, maximum: 100, ranges: <GaugeRange>[
           GaugeRange(startValue: 0, endValue: 18.5, color: Colors.yellow),
-          GaugeRange(startValue: 18.5, endValue: 25, color: Colors.green),
+          GaugeRange(
+              startValue: 18.5, endValue: 25, color: Colors.green.shade500),
           GaugeRange(startValue: 25, endValue: 30, color: Colors.red.shade100),
           GaugeRange(startValue: 30, endValue: 35, color: Colors.red.shade300),
           GaugeRange(startValue: 35, endValue: 40, color: Colors.red.shade600),

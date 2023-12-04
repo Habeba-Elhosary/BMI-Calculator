@@ -1,41 +1,30 @@
 import 'dart:math';
 
 class Calculation {
-  final int height;
-  final int weight;
+  final double height;
+  final double weight;
   Calculation({required this.height, required this.weight});
- 
+
   double result() {
-    var res = (weight / pow(height / 100, 2));
-    return res.roundToDouble();
+    double res =
+        double.parse((weight / pow(height / 100, 2)).toStringAsFixed(2));
+    return res;
   }
 
-  // String getText() {
-  //   if (_bmi >= 25) {
-  //     return 'OVERWEIGHT';
-  //   } else if (_bmi > 18.5) {
-  //     return 'NORMAL';
-  //   } else {
-  //     return 'UNDERWEIGHT';
-  //   }
-  // }
-  // Color _textColor = Color(0xFF24D876);
-
-  // String getAdvise() {
-  //   if (_bmi >= 25) {
-  //     return 'You have a more than normal body weight.\n Try to do more Exercise';
-  //   } else if (_bmi > 18.5) {
-  //     return 'You have a normal body weight.\nGood job!';
-  //   } else {
-  //     return 'You have a lower than normal body weight.\n Try to eat more';
-  //   }
-  // }
-
-  // Color getTextColor() {
-  //   if (_bmi >= 25 || _bmi <= 18.5) {
-  //     return Colors.deepOrangeAccent;
-  //   } else {
-  //     return Color(0xFF24D876);
-  //   }
-  // }
+  int getTextColor() {
+    if (result() >= 0 && result() < 18.5) {
+      return 0;
+    } else if (result() >= 18.5 && result() <= 24.9) {
+      return 1;
+    } else if (result() >= 25 && result() <= 29.9) {
+      return 2;
+    } else if (result() >= 30 && result() <= 34.9) {
+      return 3;
+    } else if (result() >= 35 && result() <= 39.9) {
+      return 4;
+    } else if (result() >= 40 && result() <= 100) {
+      return 5;
+    }
+    return -1;
+  }
 }

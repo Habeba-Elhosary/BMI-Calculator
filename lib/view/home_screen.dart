@@ -8,13 +8,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  double height = 165;
+  double weight = 65;
+
+  @override
   Widget build(BuildContext context) {
-    int height = 165;
-    int weight = 65;
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -35,15 +42,24 @@ class HomeScreen extends StatelessWidget {
                   title: 'Height',
                   unit: 'CM',
                   measuredValue: height,
+                  onChangedFunction: (value) {
+                    setState(() {
+                      height = value;
+                    });
+                  },
                 ),
                 SizedBox(height: 50.h),
-                //
                 SFSliderWidget(
                   minValue: 40,
                   maxValue: 130,
                   title: 'Weight',
                   unit: 'KG',
                   measuredValue: weight,
+                  onChangedFunction: (value) {
+                    setState(() {
+                      weight = value;
+                    });
+                  },
                 ),
                 SizedBox(height: 100.h),
                 InkWell(
@@ -53,22 +69,23 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       CupertinoPageRoute(
-                          builder: (context) => ResultsScreen(
-                                result: calc.result(),
-                              )),
-                    );
-                    print("الطوولللل${calc.height}");
-                    print("الوزززن${calc.weight}");
-                    print("${calc.result()}الحقونااااااي");
+                        builder: (context) => ResultsScreen(
+                          result: calc.result(), indexOfRow: calc.getTextColor(),
+                        ),
+                      ),
+                    );  
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 60, vertical: 10),
                     decoration: BoxDecoration(
-                        color: MyColors.myBlue,
-                        borderRadius: BorderRadius.circular(20.r)),
-                    child: Text("Calculate",
-                        style: TextStyles.whiting(TextStyles.bodyText)),
+                      color: MyColors.myBlue,
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Text(
+                      "Calculate",
+                      style: TextStyles.whiting(TextStyles.bodyText),
+                    ),
                   ),
                 ),
               ],

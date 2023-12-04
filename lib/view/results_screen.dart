@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResultsScreen extends StatelessWidget {
   final double result;
-  const ResultsScreen({super.key, required this.result});
+  final int indexOfRow;
+  const ResultsScreen(
+      {super.key, required this.result, required this.indexOfRow});
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +38,10 @@ class ResultsScreen extends StatelessWidget {
                   "Your BMI Results",
                   style: TextStyles.headLine,
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 40.h),
                 GaugeWidget(bmiVal: result),
-                SizedBox(height: 5.h),
-                const RangesWidget(),
+                SizedBox(height: 10.h),
+                RangesWidget(selectedRow: indexOfRow),
               ],
             ),
           ),
