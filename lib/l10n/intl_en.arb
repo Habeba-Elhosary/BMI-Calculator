@@ -1,0 +1,19 @@
+{
+    "Change_lang" : "Change to Arabic",
+    "Dark_Mode" : "Dark Mode",
+    "Light_Mode" : "Light Mode",
+    "BMI_Calculator" : "BMI Calculator",
+    "Gender" : "Gender",
+    "Height" : "Height",
+    "CM" : "CM",
+    "Weight" : "Weight",
+    "KG" : "KG",
+    "Calculate" : "Calculate",
+    "Your_BMI_Results" : "Your BMI Results",
+    "Underweight" : "Underweight",
+    "Healthy" : "Healthy",
+    "Overweight" : "Overweight",
+    "Obese" : "Obese",
+    "Highly_Obese" : "Highly Obese",
+    "Extremly_Obese" : "Extremly Obese"
+}

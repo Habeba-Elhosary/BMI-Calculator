@@ -1,0 +1,19 @@
+{
+    "Change_lang": "تغيير إلى الإنجليزية",
+    "Dark_Mode": "الوضع الداكن",
+    "Light_Mode": "الوضع الفاتح",
+    "BMI_Calculator": "حاسبة مؤشر كتلة الجسم",
+    "Gender": "الجنس",
+    "Height": "الطول",
+    "CM": "سم",
+    "Weight": "الوزن",
+    "KG": "كجم",
+    "Calculate": "حساب",
+    "Your_BMI_Results": "نتائج مؤشر كتلة الجسم خاصتك ",
+    "Underweight": "نقص وزن",
+    "Healthy": "صحي",
+    "Overweight": "زيادة في الوزن",
+    "Obese": "سمنة",
+    "Highly_Obese": "سمنة مفرطة",
+    "Extremly_Obese": "سمنة مفرطة جدًا"
+  }

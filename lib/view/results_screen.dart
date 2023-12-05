@@ -2,6 +2,7 @@ import 'package:bmi_calculator/Widgets/gauge.dart';
 import 'package:bmi_calculator/Widgets/ranges.dart';
 import 'package:bmi_calculator/constants/colors.dart';
 import 'package:bmi_calculator/constants/text_style.dart';
+import 'package:bmi_calculator/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +36,7 @@ class ResultsScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Your BMI Results",
+                  S.of(context).Your_BMI_Results,
                   style: TextStyles.headLine,
                 ),
                 SizedBox(height: 40.h),

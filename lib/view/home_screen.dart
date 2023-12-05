@@ -1,7 +1,9 @@
+import 'package:bmi_calculator/Widgets/drawer.dart';
 import 'package:bmi_calculator/Widgets/slider.dart';
 import 'package:bmi_calculator/Widgets/toggle_switch.dart';
 import 'package:bmi_calculator/constants/colors.dart';
 import 'package:bmi_calculator/constants/text_style.dart';
+import 'package:bmi_calculator/generated/l10n.dart';
 import 'package:bmi_calculator/logic/bmi_brain.dart';
 import 'package:bmi_calculator/view/results_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,24 +25,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: MyColors.myBlue),
+      ),
+      drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
               children: [
-                Text("BMI Calculator", style: TextStyles.headLine),
+                Text(S.of(context).BMI_Calculator, style: TextStyles.headLine),
                 SizedBox(height: 50.h),
-                Text("Gender :", style: TextStyles.bodyText),
+                Text("${S.of(context).Gender} :", style: TextStyles.bodyText),
                 SizedBox(height: 10.h),
                 const ToggleSwitchWidget(),
                 SizedBox(height: 50.h),
                 SFSliderWidget(
                   minValue: 140,
                   maxValue: 200,
-                  title: 'Height',
-                  unit: 'CM',
+                  title: S.of(context).Height,
+                  unit: S.of(context).CM,
                   measuredValue: height,
                   onChangedFunction: (value) {
                     setState(() {
@@ -52,8 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 SFSliderWidget(
                   minValue: 40,
                   maxValue: 130,
-                  title: 'Weight',
-                  unit: 'KG',
+                  title: S.of(context).Weight,
+                  unit: S.of(context).KG,
                   measuredValue: weight,
                   onChangedFunction: (value) {
                     setState(() {
@@ -70,10 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       CupertinoPageRoute(
                         builder: (context) => ResultsScreen(
-                          result: calc.result(), indexOfRow: calc.getTextColor(),
+                          result: calc.result(),
+                          indexOfRow: calc.getTextColor(),
                         ),
                       ),
-                    );  
+                    );
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -83,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Text(
-                      "Calculate",
+                      S.of(context).Calculate,
                       style: TextStyles.whiting(TextStyles.bodyText),
                     ),
                   ),
